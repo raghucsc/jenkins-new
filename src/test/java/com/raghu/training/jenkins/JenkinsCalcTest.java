@@ -2,7 +2,7 @@ package com.raghu.training.jenkins;
 
 import static org.junit.Assert.*;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 public class JenkinsCalcTest {
 
