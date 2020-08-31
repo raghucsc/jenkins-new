@@ -1,6 +1,8 @@
 package com.raghu.training.testng;
 
 
+import java.net.UnknownHostException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,7 +20,7 @@ public class SampleSeleniumTest {
 	public void startBrowser() {
 		//C:\Users\902559\auto\Cucumber-Engineering\target\classes\drivers
 		//F:\\Downloads\\chromedriver_win32\\chromedriver.exe
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\902559\\auto\\Cucumber-Engineering\\src\\main\\resources\\drivers\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", new String(getDriverLoc() + "chromedriver.exe"));
 		ChromeOptions chromeOptions = new ChromeOptions();
 		chromeOptions.addArguments("--start-maximized");
 		driver = new ChromeDriver(chromeOptions);
@@ -48,4 +50,20 @@ public class SampleSeleniumTest {
 		driver.quit();
 	}
 
+	public static String projectRoot() {
+		// System.out.println("User directory " + System.getProperty("user.dir"));
+		return System.getProperty("user.dir");
+	}
+	
+
+	public static String getDriverLoc() {
+		return System.getProperty("user.dir") + "\\src\\main\\resources\\drivers\\";
+	}
+	
+	protected static void setDriverProperties() throws UnknownHostException {
+		System.setProperty("webdriver.chrome.driver", new String(getDriverLoc() + "chromedriver.exe"));
+		System.setProperty("webdriver.gecko.driver", new String(getDriverLoc() + "geckodriver.exe"));
+		System.setProperty("webdriver.ie.driver",new String(getDriverLoc() + "IEDriverServer.exe"));
+	}
+	
 }
