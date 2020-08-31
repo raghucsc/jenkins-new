@@ -57,7 +57,7 @@ public class SampleSeleniumTest {
 	
 
 	public static String getDriverLoc() {
-		return System.getProperty("user.dir") + "\\src\\main\\resources\\drivers\\";
+		return System.getProperty("user.dir") + "//src//main//resources//drivers//";
 	}
 	
 	protected static void setDriverProperties() throws UnknownHostException {
